@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Jewelry - تصاميم مجوهرات فاخرة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Luxe<span class="gold">Jewelry</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#shop">المتجر</a></li>
+                <li><a href="#custom">تصميم مخصص</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-bag"></i></a>
+                <span class="menu-toggle"><i class="fas fa-bars"></i></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">أناقة لا مثيل لها</span>
+            <h1 class="hero-title">مجوهرات تستحقينها</h1>
+            <p class="hero-desc">اكتشفي تشكيلتنا الحصرية من المجوهرات الفاخرة المصنوعة بأحدث التصاميم وأجود المواد</p>
+            <a href="#shop" class="btn-primary">تسوقي الآن</a>
+        </div>
+        <div class="hero-scroll">
+            <span>تصفحي المزيد</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="shop-section">
+        <div class="section-header">
+            <span class="section-subtitle">مجموعتنا</span>
+            <h2 class="section-title">أحدث التصاميم</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="product-filters">
+            <button class="filter-btn active" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="rings">خواتم</button>
+            <button class="filter-btn" data-filter="necklaces">قلائد</button>
+            <button class="filter-btn" data-filter="bracelets">أساور</button>
+            <button class="filter-btn" data-filter="earrings">أقراط</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="rings">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop" alt="خاتم ألماسي">
+                    <div class="product-overlay">
+                        <button class="quick-view">عرض سريع</button>
+                        <button class="add-to-cart">إضافة للسلة</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">خواتم</span>
+                    <h3 class="product-name">خاتم الألماس الكلاسيكي</h3>
+                    <p class="product-desc">خاتم ألماس نقي بتقطيع برilliant</p>
+                    <span class="product-price">12,500 ر.س</span>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="necklaces">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=500&fit=crop" alt="قلادة ذهبية">
+                    <div class="product-overlay">
+                        <button class="quick-view">عرض سريع</button>
+                        <button class="add-to-cart">إضافة للسلة</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">قلائد</span>
+                    <h3 class="product-name">قلادة ذهبية مرصعة</h3>
+                    <p class="product-desc">قلادة ذهب 18 قيراط مع أحجار كريمة</p>
+                    <span class="product-price">28,000 ر.س</span>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="earrings">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=500&fit=crop" alt="أقراط">
+                    <div class="product-overlay">
+                        <button class="quick-view">عرض سريع</button>
+                        <button class="add-to-cart">إضافة للسلة</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">أقراط</span>
+                    <h3 class="product-name">أقراط Diamonds</h3>
+                    <p class="product-desc">أقراط ألماس مع研<|message|>裁縫</p>
+                    <span class="product-price">8,750 ر.س</span>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="bracelets">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=500&fit=crop" alt="سوار">
+                    <div class="product-overlay">
+                        <button class="quick-view">عرض سريع</button>
+                        <button class="add-to-cart">إضافة للسلة</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">أساور</span>
+                    <h3 class="product-name">سوار ذهبي أنيق</h3>
+                    <p class="product-desc">سوار ذهب أبيض مرصع بالألماس</p>
+                    <span class="product-price">15,200 ر.س</span>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="rings">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400&h=500&fit=crop" alt="خاتم زفاف">
+                    <div class="product-overlay">
+                        <button class="quick-view">عرض سريع</button>
+                        <button class="add-to-cart">إضافة للسلة</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">خواتم</span>
+                    <h3 class="product-name">خاتم زفاف رومانسي</h3>
+                    <p class="product-desc">خاتم زفاف بتاج فيراري الذهبي</p>
+                    <span class="product-price">18,900 ر.س</span>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="necklaces">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&h=500&fit=crop" alt="قلادة">
+                    <div class="product-overlay">
+                        <button class="quick-view">عرض سريع</button>
+                        <button class="add-to-cart">إضافة للسلة</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">قلائد</span>
+                    <h3 class="product-name">قلادة اللؤلؤ الطبيعي</h3>
+                    <p class="product-desc">قلادة لؤلؤ أكوا باوشيل النادر</p>
+                    <span class="product-price">35,000 ر.س</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Design Section -->
+    <section id="custom" class="custom-section">
+        <div class="custom-container">
+            <div class="custom-content">
+                <span class="section-subtitle">تصميمكِ الفريد</span>
+                <h2 class="section-title">صممي مجوهراتكِ الخاصة</h2>
+                <div class="divider"></div>
+                <p class="custom-desc">أ梦想你现在是一个珠宝设计师。给我们发送您的想法和设计理念，我们的专业团队将打造出独一无二的作品，只属于您。</p>
+                <ul class="custom-features">
+                    <li><i class="fas fa-gem"></i> أحجار كريمة نادرة</li>
+                    <li><i class="fas fa-pencil-alt"></i> تصاميم حصرية</li>
+                    <li><i class="fas fa-certificate"></i> ضمان ذهبي</li>
+                    <li><i class="fas fa-shipping-fast"></i> توصيل آمن</li>
+                </ul>
+                <a href="#contact" class="btn-primary">ابدأي التصميم</a>
+            </div>
+            <div class="custom-gallery">
+                <div class="custom-image main">
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&h=600&fit=crop" alt="تصميم مخصص">
+                    <div class="image-badge">تصميم حصري</div>
+                </div>
+                <div class="custom-image">
+                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=250&h=200&fit=crop" alt="تصميم مخصص 2">
+                </div>
+                <div class="custom-image">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=250&h=200&fit=crop" alt="تصميم مخصص 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=400&h=500&fit=crop" alt="عن المتجر" class="about-img-1">
+                <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=350&fit=crop" alt="مجوهرات" class="about-img-2">
+                <div class="about-exp">
+                    <span class="exp-number">15+</span>
+                    <span class="exp-text">سنوات خبرة</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-subtitle">من نحن</span>
+                <h2 class="section-title">قصتنا</h2>
+                <div class="divider"></div>
+                <p>نقدم منذ أكثر من 15 سنة أجود المجوهرات الفاخرة لناسٍ يقدّرون الجمال والأناقة. جمعيتنا تتضمن تشكيلة متنوعة من التصاميم الكلاسيكية والحديثة.</p>
+                <p>كل قطعة في مجموعتنا مصنوعة بدقة متناهية من أجود المواد، مع اهتمامٍ كبير بالتفاصيل لضمان رضاكِ التام.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">عميلة سعيدة</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">تصميم حصري</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">جائزة عالمية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <span class="section-subtitle">اتصل بنا</span>
+            <h2 class="section-title">نحب أن نسمع منكِ</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>الموقع</h4>
+                        <p>الرياض، حي العليا، شارع التحلية</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>الهاتف</h4>
+                        <p>+966 55 123 4567</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>البريد الإلكتروني</h4>
+                        <p>info@luxejewelry.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>أوقات العمل</h4>
+                        <p>السبت - الخميس: 9ص - 10م</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="الاسم" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="البريد الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="رقم الهاتف">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="رسالتكِ" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="#" class="footer-logo">Luxe<span class="gold">Jewelry</span></a>
+                <p>أجمل المجوهرات الفاخرة لناسٍ يستحقن الأفضل. نصنع أحلامكِ إلى واقع.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-snapchat"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#shop">المتجر</a></li>
+                    <li><a href="#custom">تصميم مخصص</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>المتجر</h4>
+                <ul>
+                    <li><a href="#">خواتم</a></li>
+                    <li><a href="#">قلائد</a></li>
+                    <li><a href="#">أساور</a></li>
+                    <li><a href="#">أقراط</a></li>
+                    <li><a href="#">تنسيقات</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>النشرة البريدية</h4>
+                <p>اشتركي للحصول على آخر التصاميم والعروض</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="بريدكِ الإلكتروني">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Luxe Jewelry. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
