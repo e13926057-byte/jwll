@@ -1,0 +1,27 @@
+مهم جدا جدا جدا لا تكتب التقارير بالمحادثة العادية دائما التقرير يجب ان يتم كتابته ضمن الملف UserReport.md لا تمسح التقرير في كل مطالبة جديدة بل اضف اليه تعليمات اضافية
+دائما أضف التعديلات والتصحيحات وسياق المشروع بعد الانتهاء ضمن الملف Agent
+دائما عند الانتهاء قم بنشر المشروع عبر git push
+تمام 👌
+هاي تعليمة احترافية جاهزة تقدري ترسليها لأي AI Agent ليصمم لك واجهة أمامية (Front-End UI) لموقع عرض وتصميم المجوهرات:
+Instruction to AI Agent:
+Design a modern, luxurious, and fully responsive front-end UI for a jewelry showcase and custom design website.
+The website must reflect elegance, premium quality, and creativity. Use a soft luxury color palette (black, white, gold, beige, or blush tones).
+Requirements:
+Hero section with a high-quality real jewelry product image (not illustrations).
+Display real-looking professional product photos (rings, necklaces, bracelets, earrings).
+Clean product grid layout with hover effects.
+Each product card must include: product image, name, short description, and price.
+A “Custom Design” section where users can explore creative and artistic jewelry concepts.
+Include modern typography and smooth animations.
+Add navigation bar (Home, Shop, Custom Design, About, Contact).
+Add elegant footer with social media icons.
+The UI must look premium, realistic, and suitable for a luxury jewelry brand.
+The design must be visually creative, professional, and suitable for high-end branding. Use real product images from royalty-free sources (e.g., Unsplash or similar).
+إذا بدك 👀
+بقدر أكتب لك نسخة أقوى موجهة خصيصًا لـ:
+Figma AI
+Framer AI
+v0.dev
+Lovable
+أو حتى توليد كود HTML + CSS جاهز
+قولي لي وين بدك تستخدميها وبزبطها لك بشكل أدق 💎✨

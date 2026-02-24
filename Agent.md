@@ -4,49 +4,91 @@
 
 ### 1. الملفات المنشأة
 
+#### ملفات Frontend:
 - **index.html**: الصفحة الرئيسية للموقع
 - **style.css**: ملف التنسيقات CSS الكامل
-- **script.js**: ملف JavaScript للتفاعلات والوظائف
+- **script.js**: ملف JavaScript للتفاعات والوظائف
 - **UserReport.md**: تقرير المشروع
+
+#### ملفات Backend:
+- **main.py**: نقطة الدخول الرئيسية للتطبيق
+- **database.py**: إعدادات الاتصال بقاعدة البيانات
+- **requirements.txt**: قائمة المتطلبات
+- **.env.example**: نموذج المتغيرات البيئية
+- **seeder.py**: سكريبت تعبئة البيانات
+- **README.md**: توثيق شامل
+
+#### ملفات Models:
+- **models/models.py**: نماذج قاعدة البيانات
+
+#### ملفات Schemas:
+- **schemas/schemas.py**: مخططات Pydantic
+
+#### ملفات Routers:
+- **routers/auth.py**: المصادقة وتسجيل الدخول
+- **routers/products.py**: إدارة المنتجات
+- **routers/cart.py**: سلة التسوق
+- **routers/orders.py**: إدارة الطلبات
+- **routers/ai.py**: الذكاء الاصطناعي
+- **routers/design_requests.py**: طلبات التصميم
+- **routers/payment_methods.py**: طرق الدفع
 
 ### 2. تفاصيل التنفيذ
 
-#### HTML (index.html)
+#### Frontend (index.html)
 - هيكل الصفحة الكامل مع 7 أقسام رئيسية
-- شريط التنقل (Navbar) مع شعارات وأيقونات
-- قسم Hero مع خلفية صورة عالية الجودة
-- قسم Shop مع 6 منتجات (خواتم، قلائد، أقراط، أساور)
-- قسم Custom Design للتصميم المخصص
-- قسم About من نحن
-- قسم Contact مع نموذج اتصال
-- تذييل Footer مع روابط وأيقونات التواصل
+- شريط التنقل (Navbar)
+- قسم Hero مع صورة خلفية
+- قسم Shop مع منتجات
+- قسم Custom Design
+- قسم About
+- قسم Contact
+- Footer
 
-#### CSS (style.css)
-- ألوان فاخرة: أسود، أبيض، ذهبي، بيج، وردي فاتح
-- تأثيرات Hover على البطاقات والصور
-- Responsive Design للجوال والكمبيوتر
-- انتقالات سلسة ورسوم متحركة
-- خطوط عربية وأنجليزية فاخرة
+#### Backend (FastAPI)
+- إعداد FastAPI مع CORS
+- نماذج قاعدة البيانات الكاملة
+- نظام المصادقة JWT
+- CRUD كامل للمنتجات والفئات
+- نظام السلة والطلبات
+- **ميزة AI Design**: تصميم المجوهرات بالذكاء الاصطناعي
 
-#### JavaScript (script.js)
-- تغيير الـ Navbar عند التمرير
-- تصفية المنتجات حسب الفئة
-- القائمة المتنقلة للجوال
-- التمرير السلس للروابط
-- Intersection Observer للظهور التدريجي
-- معالجة نموذج الاتصال
-- معالجة النشرة البريدية
+### 3. AI Jewelry Design Feature
 
-### 3. التقنيات المستخدمة
-- HTML5
-- CSS3 (Flexbox, Grid, Animations)
-- JavaScript (ES6+)
-- Font Awesome للأيقونات
-- Google Fonts للخطوط
-- Unsplash للصور
+نقطة النهاية: `POST /api/ai/generate-design`
 
-### 4. حالة المشروع
-- ✅ HTML مكتمل
-- ✅ CSS مكتمل
-- ✅ JavaScript مكتمل
+تقبل JSON:
+```json
+{
+    "type": "Ring",
+    "color": "Gold",
+    "shape": "Oval",
+    "material": "Gold",
+    "karat": "21k",
+    "gemstone_type": "Diamond",
+    "gemstone_color": "White"
+}
+```
+
+### 4. التقنيات المستخدمة
+
+#### Frontend:
+- HTML5, CSS3, JavaScript
+- Font Awesome, Google Fonts
+
+#### Backend:
+- Python + FastAPI
+- SQLAlchemy + Pydantic
+- MySQL (XAMPP)
+- Google Gemini API
+- JWT Authentication
+
+### 5. حالة المشروع
+- ✅ Frontend مكتمل
+- ✅ Backend API مكتمل
+- ✅ نظام المصادقة
+- ✅ إدارة المنتجات
+- ✅ سلة التسوق
+- ✅ الذكاء الاصطناعي
+- ✅ التوثيق
 - ⏳ في انتظار النشر عبر Git Push
