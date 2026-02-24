@@ -3,19 +3,16 @@ from sqlalchemy.orm import Session
 from typing import List
 import os
 import uuid
-import base64
+import json
 from datetime import datetime
 
 import google.generativeai as genai
 
 from database import get_db
-from models.models import UserGeneratedDesign, DesignRequest, DesignRequestStatus, User
+from models.models import UserGeneratedDesign, User
 from schemas.schemas import (
     AIGenerateDesignRequest, 
-    UserGeneratedDesignResponse,
-    DesignRequestCreate,
-    DesignRequestUpdate,
-    DesignRequestResponse
+    UserGeneratedDesignResponse
 )
 from routers.auth import get_current_user
 
@@ -82,7 +79,7 @@ def generate_ai_design(
         
         design_record = UserGeneratedDesign(
             user_id=current_user.id,
-            selected_options=design_data.dict(),
+            selected_options=json.dumps(design_data.dict()),
             generated_image_url=f"/static/generated_designs/{filename}"
         )
         db.add(design_record)

@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, Text, ForeignKey, Enum, JSON, Enum
+from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, Text, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
 import enum
@@ -155,7 +155,7 @@ class Order(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     payment_method_id = Column(Integer, ForeignKey("payment_methods.id"))
     order_date = Column(DateTime, default=datetime.utcnow)
-    status = Column(Enum(OrderStatus), default=OrderStatus.PENDING)
+    status = Column(String(20), default="pending")
     total_amount = Column(Float, nullable=False)
     shipping_address = Column(Text)
     transfer_receipt = Column(String(255))
@@ -184,7 +184,7 @@ class UserGeneratedDesign(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
-    selected_options = Column(JSON)
+    selected_options = Column(Text)
     generated_image_url = Column(String(255))
     created_at = Column(DateTime, default=datetime.utcnow)
 
@@ -203,7 +203,7 @@ class DesignRequest(Base):
     attachment_url = Column(String(255))
     estimated_budget = Column(Float)
     jeweler_price_offer = Column(Float, nullable=True)
-    status = Column(Enum(DesignRequestStatus), default=DesignRequestStatus.PENDING)
+    status = Column(String(20), default="pending")
 
     user = relationship("User", back_populates="design_requests")
     jeweler = relationship("Jeweler", back_populates="design_requests")

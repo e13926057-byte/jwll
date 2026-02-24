@@ -224,7 +224,7 @@ class OrderResponse(OrderBase):
 
 
 class UserGeneratedDesignBase(BaseModel):
-    selected_options: dict
+    selected_options: str
     generated_image_url: str
 
 
