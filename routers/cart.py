@@ -7,7 +7,7 @@ from schemas.schemas import CartItemCreate, CartItemResponse, CartResponse
 from routers.auth import get_current_user
 from models.models import User
 
-router = APIRouter(prefix="/api/cart", tags=["Cart"])
+router = APIRouter(prefix="/api/cart", tags=["سلة التسوق"])
 
 
 def get_or_create_cart(user_id: int, db: Session):
@@ -39,7 +39,7 @@ def add_to_cart(
     
     product = db.query(Product).filter(Product.id == item.product_id).first()
     if not product:
-        raise HTTPException(status_code=404, detail="Product not found")
+        raise HTTPException(status_code=404, detail="المنتج غير موجود")
     
     existing_item = db.query(CartItem).filter(
         CartItem.cart_id == cart.id,
@@ -77,11 +77,11 @@ def remove_from_cart(
     ).first()
     
     if not item:
-        raise HTTPException(status_code=404, detail="Item not found in cart")
+        raise HTTPException(status_code=404, detail="العنصر غير موجود في السلة")
     
     db.delete(item)
     db.commit()
-    return {"message": "Item removed from cart"}
+    return {"message": "تم حذف العنصر من السلة"}
 
 
 @router.put("/items/{item_id}")
@@ -99,12 +99,12 @@ def update_cart_item(
     ).first()
     
     if not item:
-        raise HTTPException(status_code=404, detail="Item not found in cart")
+        raise HTTPException(status_code=404, detail="العنصر غير موجود في السلة")
     
     if quantity <= 0:
         db.delete(item)
         db.commit()
-        return {"message": "Item removed from cart"}
+        return {"message": "تم حذف العنصر من السلة"}
     
     item.quantity = quantity
     db.commit()
@@ -120,4 +120,4 @@ def clear_cart(
     cart = get_or_create_cart(current_user.id, db)
     db.query(CartItem).filter(CartItem.cart_id == cart.id).delete()
     db.commit()
-    return {"message": "Cart cleared"}
+    return {"message": "تم إفراغ السلة"}

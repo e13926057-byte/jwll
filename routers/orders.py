@@ -2,12 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 from database import get_db
-from models.models import Order, OrderItem, Cart, CartItem, Product, OrderStatus
+from models.models import Order, OrderItem, Cart, CartItem, Product
 from schemas.schemas import OrderCreate, OrderResponse, OrderUpdate, OrderItemResponse
 from routers.auth import get_current_user
 from models.models import User
 
-router = APIRouter(prefix="/api/orders", tags=["Orders"])
+router = APIRouter(prefix="/api/orders", tags=["الطلبات"])
 
 
 @router.get("", response_model=List[OrderResponse])
@@ -30,7 +30,7 @@ def get_order(
         Order.user_id == current_user.id
     ).first()
     if not order:
-        raise HTTPException(status_code=404, detail="Order not found")
+        raise HTTPException(status_code=404, detail="الطلب غير موجود")
     return order
 
 
@@ -42,7 +42,7 @@ def create_order(
 ):
     cart = db.query(Cart).filter(Cart.user_id == current_user.id).first()
     if not cart or not cart.items:
-        raise HTTPException(status_code=400, detail="Cart is empty")
+        raise HTTPException(status_code=400, detail="السلة فارغة")
     
     total_amount = 0
     order_items = []
@@ -64,7 +64,7 @@ def create_order(
         total_amount=total_amount,
         shipping_address=order_data.shipping_address,
         transfer_receipt=order_data.transfer_receipt,
-        status=OrderStatus.PENDING
+        status="pending"
     )
     db.add(new_order)
     db.flush()
@@ -88,10 +88,10 @@ def update_order_status(
 ):
     order = db.query(Order).filter(Order.id == order_id).first()
     if not order:
-        raise HTTPException(status_code=404, detail="Order not found")
+        raise HTTPException(status_code=404, detail="الطلب غير موجود")
     
     if order_update.status:
-        order.status = OrderStatus[order_update.status.value.upper()]
+        order.status = order_update.status.value
     if order_update.jeweler_price_offer:
         order.jeweler_price_offer = order_update.jeweler_price_offer
     

@@ -7,7 +7,7 @@ from schemas.schemas import PaymentMethodCreate, PaymentMethodResponse
 from routers.auth import get_current_user
 from models.models import User
 
-router = APIRouter(prefix="/api/payment-methods", tags=["Payment Methods"])
+router = APIRouter(prefix="/api/payment-methods", tags=["طرق الدفع"])
 
 
 @router.get("", response_model=List[PaymentMethodResponse])
@@ -43,7 +43,7 @@ def update_payment_method(
 ):
     db_method = db.query(PaymentMethod).filter(PaymentMethod.id == method_id).first()
     if not db_method:
-        raise HTTPException(status_code=404, detail="Payment method not found")
+        raise HTTPException(status_code=404, detail="طريقة الدفع غير موجودة")
     
     db_method.method_name = payment_method.method_name
     db_method.qr_code_image = payment_method.qr_code_image
@@ -63,8 +63,8 @@ def delete_payment_method(
 ):
     method = db.query(PaymentMethod).filter(PaymentMethod.id == method_id).first()
     if not method:
-        raise HTTPException(status_code=404, detail="Payment method not found")
+        raise HTTPException(status_code=404, detail="طريقة الدفع غير موجودة")
     
     method.is_active = False
     db.commit()
-    return {"message": "Payment method deactivated"}
+    return {"message": "تم إلغاء طريقة الدفع"}

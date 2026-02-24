@@ -16,7 +16,7 @@ from schemas.schemas import (
 )
 from routers.auth import get_current_user
 
-router = APIRouter(prefix="/api/ai", tags=["AI Design"])
+router = APIRouter(prefix="/api/ai", tags=["الذكاء الاصطناعي"])
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 genai.configure(api_key=GEMINI_API_KEY)
@@ -45,7 +45,7 @@ def generate_ai_design(
     db: Session = Depends(get_db)
 ):
     if not GEMINI_API_KEY:
-        raise HTTPException(status_code=500, detail="Gemini API key not configured")
+        raise HTTPException(status_code=500, detail="مفتاح Gemini API غير مكون")
     
     try:
         prompt = construct_prompt(design_data)
@@ -66,7 +66,7 @@ def generate_ai_design(
                 break
         
         if not image_data:
-            raise HTTPException(status_code=500, detail="Failed to generate image")
+            raise HTTPException(status_code=500, detail="فشل في إنشاء الصورة")
         
         static_dir = "static/generated_designs"
         os.makedirs(static_dir, exist_ok=True)
@@ -89,7 +89,7 @@ def generate_ai_design(
         return design_record
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"AI generation failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"فشل إنشاء التصميم بالذكاء الاصطناعي: {str(e)}")
 
 
 @router.get("/designs", response_model=List[UserGeneratedDesignResponse])
@@ -114,5 +114,5 @@ def get_design(
         UserGeneratedDesign.user_id == current_user.id
     ).first()
     if not design:
-        raise HTTPException(status_code=404, detail="Design not found")
+        raise HTTPException(status_code=404, detail="التصميم غير موجود")
     return design

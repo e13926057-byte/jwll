@@ -10,7 +10,7 @@ from schemas.schemas import (
 from routers.auth import get_current_user
 from models.models import User
 
-router = APIRouter(prefix="/api", tags=["E-commerce"])
+router = APIRouter(prefix="/api", tags=["المتجر"])
 
 
 @router.get("/products", response_model=List[ProductResponse])
@@ -43,7 +43,7 @@ def get_products(
 def get_product(product_id: int, db: Session = Depends(get_db)):
     product = db.query(Product).filter(Product.id == product_id).first()
     if not product:
-        raise HTTPException(status_code=404, detail="Product not found")
+        raise HTTPException(status_code=404, detail="المنتج غير موجود")
     return product
 
 
@@ -86,7 +86,7 @@ def update_product(
 ):
     db_product = db.query(Product).filter(Product.id == product_id).first()
     if not db_product:
-        raise HTTPException(status_code=404, detail="Product not found")
+        raise HTTPException(status_code=404, detail="المنتج غير موجود")
     
     update_data = product.dict(exclude_unset=True)
     category_ids = update_data.pop("category_ids", None)
@@ -113,13 +113,13 @@ def delete_product(
 ):
     product = db.query(Product).filter(Product.id == product_id).first()
     if not product:
-        raise HTTPException(status_code=404, detail="Product not found")
+        raise HTTPException(status_code=404, detail="المنتج غير موجود")
     
     db.query(ProductCategory).filter(ProductCategory.product_id == product_id).delete()
     db.query(ProductImage).filter(ProductImage.product_id == product_id).delete()
     db.delete(product)
     db.commit()
-    return {"message": "Product deleted successfully"}
+    return {"message": "تم حذف المنتج بنجاح"}
 
 
 @router.get("/categories", response_model=List[CategoryResponse])
@@ -149,9 +149,9 @@ def delete_category(
 ):
     category = db.query(Category).filter(Category.id == category_id).first()
     if not category:
-        raise HTTPException(status_code=404, detail="Category not found")
+        raise HTTPException(status_code=404, detail="الفئة غير موجودة")
     
     db.query(ProductCategory).filter(ProductCategory.category_id == category_id).delete()
     db.delete(category)
     db.commit()
-    return {"message": "Category deleted successfully"}
+    return {"message": "تم حذف الفئة بنجاح"}

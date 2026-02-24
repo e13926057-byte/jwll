@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 from database import get_db
-from models.models import DesignRequest, DesignRequestStatus
+from models.models import DesignRequest
 from schemas.schemas import (
     DesignRequestCreate,
     DesignRequestUpdate,
@@ -11,7 +11,7 @@ from schemas.schemas import (
 from routers.auth import get_current_user
 from models.models import User
 
-router = APIRouter(prefix="/api/design-requests", tags=["Design Requests"])
+router = APIRouter(prefix="/api/design-requests", tags=["طلبات التصميم"])
 
 
 @router.get("", response_model=List[DesignRequestResponse])
@@ -35,7 +35,7 @@ def get_design_request(
         DesignRequest.id == request_id
     ).first()
     if not design_request:
-        raise HTTPException(status_code=404, detail="Design request not found")
+        raise HTTPException(status_code=404, detail="طلب التصميم غير موجود")
     return design_request
 
 
@@ -52,7 +52,7 @@ def create_design_request(
         description=request_data.description,
         attachment_url=request_data.attachment_url,
         estimated_budget=request_data.estimated_budget,
-        status=DesignRequestStatus.PENDING
+        status="pending"
     )
     db.add(new_request)
     db.commit()
@@ -71,12 +71,12 @@ def update_design_request(
         DesignRequest.id == request_id
     ).first()
     if not design_request:
-        raise HTTPException(status_code=404, detail="Design request not found")
+        raise HTTPException(status_code=404, detail="طلب التصميم غير موجود")
     
     if request_update.jeweler_price_offer:
         design_request.jeweler_price_offer = request_update.jeweler_price_offer
     if request_update.status:
-        design_request.status = DesignRequestStatus[request_update.status.value.upper()]
+        design_request.status = request_update.status.value
     
     db.commit()
     db.refresh(design_request)

@@ -7,8 +7,8 @@ from database import engine, Base
 from routers import auth, products, cart, orders, ai, design_requests, payment_methods
 
 app = FastAPI(
-    title="Jewelry E-commerce API",
-    description="Backend API for Jewelry E-commerce and AI Design Platform",
+    title="واجهة برمجة تطبيقات متجر المجوهرات",
+    description="واجهة برمجة تطبيقات لمتجر مجوهرات إلكتروني مع ميزة التصميم بالذكاء الاصطناعي",
     version="1.0.0"
 )
 
@@ -42,7 +42,7 @@ app.include_router(payment_methods.router)
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to Jewelry E-commerce API", "status": "running"}
+    return {"message": "مرحباً بك في واجهة برمجة تطبيقات متجر المجوهرات", "status": " працює"}
 
 
 @app.get("/health")
