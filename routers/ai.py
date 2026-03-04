@@ -50,7 +50,7 @@ def generate_ai_design(
     try:
         prompt = construct_prompt(design_data)
         
-        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        model = genai.GenerativeModel('gemini-3-pro-image-preview')
         
         response = model.generate_content(
             [prompt],
