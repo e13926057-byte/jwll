@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر المجوهرات الفاخرة</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">💎 مجوهراتي</a>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#ai-design">تصميم AI</a></li>
+                <li><a href="#designers">الصاغة</a></li>
+                <li><a href="#cart" class="cart-link">
+                    🛒 السلة <span class="cart-count">0</span>
+                </a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button id="loginBtn" class="btn btn-outline">تسجيل الدخول</button>
+                <button id="logoutBtn" class="btn btn-danger" style="display:none;">تسجيل الخروج</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>تصاميم مجوهرات فريدة</h1>
+                <p>اكتشف تشكيلتنا الفاخرة أو صمم قطعتك الخاصة بالذكاء الاصطناعي</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">تصفح المنتجات</a>
+                    <a href="#ai-design" class="btn btn-secondary">صمم بنفسك</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title">منتجاتنا</h2>
+                
+                <!-- Filters -->
+                <div class="filters">
+                    <select id="categoryFilter">
+                        <option value="">جميع الفئات</option>
+                    </select>
+                    <select id="materialFilter">
+                        <option value="">جميع المواد</option>
+                        <option value="Gold">ذهب</option>
+                        <option value="Silver">فضة</option>
+                        <option value="Platinum">بلاتينيوم</option>
+                        <option value="White Gold">ذهب أبيض</option>
+                    </select>
+                    <input type="number" id="minPrice" placeholder="السعر من">
+                    <input type="number" id="maxPrice" placeholder="السعر إلى">
+                    <button id="filterBtn" class="btn btn-primary">تصفية</button>
+                </div>
+
+                <div id="productsGrid" class="products-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Design Section -->
+        <section id="ai-design" class="section bg-gradient">
+            <div class="container">
+                <h2 class="section-title">صمم مجوهراتك بالذكاء الاصطناعي</h2>
+                <p class="section-desc">اختر مواصفاتك واحصل على تصميم فريد خاص بك</p>
+                
+                <form id="aiDesignForm" class="ai-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>نوع القطعة</label>
+                            <select name="type" required>
+                                <option value="Ring">خاتم</option>
+                                <option value="Necklace">قلادة</option>
+                                <option value="Bracelet">سوار</option>
+                                <option value="Earrings">حلق</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>المادة</label>
+                            <select name="material" required>
+                                <option value="Gold">ذهب</option>
+                                <option value="Silver">فضة</option>
+                                <option value="Platinum">بلاتينيوم</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>العيار</label>
+                            <select name="karat" required>
+                                <option value="18K">18 قيراط</option>
+                                <option value="21K">21 قيراط</option>
+                                <option value="24K">24 قيراط</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>اللون</label>
+                            <select name="color" required>
+                                <option value="Yellow">أصفر</option>
+                                <option value="White">أبيض</option>
+                                <option value="Rose">وردي</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>الشكل</label>
+                            <select name="shape" required>
+                                <option value="Round">دائري</option>
+                                <option value="Square">مربع</option>
+                                <option value="Oval">بيضاوي</option>
+                                <option value="Heart">قلب</option>
+                                <option value="Floral">زهري</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>نوع الحجر</label>
+                            <select name="gemstone_type" required>
+                                <option value="Diamond">ألماس</option>
+                                <option value="Ruby">ياقوت</option>
+                                <option value="Sapphire">زفير</option>
+                                <option value="Emerald">زمرد</option>
+                                <option value="None">بدون حجر</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>لون الحجر</label>
+                        <select name="gemstone_color" required>
+                            <option value="White">أبيض</option>
+                            <option value="Red">أحمر</option>
+                            <option value="Blue">أزرق</option>
+                            <option value="Green">أخضر</option>
+                            <option value="Black">أسود</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span class="btn-text">توليد التصميم</span>
+                        <span class="loading" style="display:none;">جاري التحميل...</span>
+                    </button>
+                </form>
+
+                <div id="generatedDesignResult" class="design-result" style="display:none;">
+                    <h3>تم توليد التصميم!</h3>
+                    <img id="generatedImage" src="" alt="Generated Design">
+                    <div class="design-actions">
+                        <button id="requestDesignBtn" class="btn btn-primary">طلب تنفيذ هذا التصميم</button>
+                        <button id="saveDesignBtn" class="btn btn-secondary">حفظ التصميم</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jewelers Section -->
+        <section id="designers" class="section">
+            <div class="container">
+                <h2 class="section-title">صاغتنا المميزون</h2>
+                <div id="jewelersGrid" class="jewelers-grid">
+                    <!-- Jewelers will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>سلة التسوق</h2>
+            <div id="cartItems">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-footer">
+                <p class="cart-total">الإجمالي: <span id="cartTotal">0</span> ريال</p>
+                <button id="checkoutBtn" class="btn btn-primary">إتمام الشراء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>تسجيل الدخول</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>اسم المستخدم</label>
+                    <input type="text" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">دخول</button>
+            </form>
+            <p class="form-footer">ليس لديك حساب؟ <a href="#" id="showRegister">سجل الآن</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>إنشاء حساب جديد</h2>
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>الاسم الأول</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>الاسم الأخير</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>اسم المستخدم</label>
+                    <input type="text" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الجوال</label>
+                    <input type="tel" name="phone">
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">إنشاء حساب</button>
+            </form>
+            <p class="form-footer">لديك حساب؟ <a href="#" id="showLogin">سجل دخول</a></p>
+        </div>
+    </div>
+
+    <!-- Design Request Modal -->
+    <div id="designRequestModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>طلب تنفيذ التصميم</h2>
+            <form id="designRequestForm">
+                <div class="form-group">
+                    <label>اختيار الصائغ</label>
+                    <select name="jeweler_id" id="jewelerSelect" required>
+                        <!-- Jewelers will be loaded here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>وصف إضافي</label>
+                    <textarea name="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>الميزانية المتوقعة</label>
+                    <input type="number" name="estimated_budget">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 متجر المجوهرات الفاخرة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
